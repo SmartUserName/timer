@@ -17,29 +17,40 @@ class App extends Component {
         }        
         
         this.convertSeconds = (sec) => {
-            const hours = Math.floor(seconds / 60 / 60); //2
-            const minutes = Math.floor((seconds - (hours * 60 * 60)) / 60);//46.66666
+            const hours = Math.floor(sec / 60 / 60); 
+            const minutes = Math.floor((sec - (hours * 60 * 60)) / 60);
             const seconds = sec - ((hours * 60 * 60) + (minutes * 60));
             this.setState({
-                hours,
+                hours: hours,
                 minutes,
                 seconds
             })
         }
-        this.setupTimer = (time) => {
+        this.setupTimer = (ev) => {
+            const time = ev.target.value
             this.setState({
                 secondsTotal: time
             })
             this.convertSeconds(time)
         }
+
+        this.resetTimer = () => {
+            this.setState({
+                secondsTotal: 0,
+                hours: 0,
+                minutes: 0,
+                seconds: 0,
+                timerOn: false,
+            })
+        }
     }
+    
     render(){
-        const { secondsTotal, hours, minutes, seconds } = this.state;
-        console.log(secondsTotal);
+        const {secondsTotal, hours, minutes, seconds } = this.state;
         return(
             <div>
-                <Timer />
-                <Input setupTimer={this.setupTimer}/>
+                <Timer hours={hours} minutes={minutes} seconds={seconds}/>
+                <Input setupTimer={this.setupTimer} resetTimer={this.resetTimer} secondsTotal={secondsTotal}/>
             </div>
         )
     }
