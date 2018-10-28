@@ -11,13 +11,10 @@ class Input extends Component {
         }
 
         this.inputCheck = (value) => {
-            console.log(value)
             if(value.length === 1 || value.length === 2){
-                console.log('1')
                 return value = [0,0,0]
             }
             for(let i=0; i<value.length; i++){
-                console.log('2')
                 if(!value[i] || value[i].toLowerCase().match(/[a-z]/)){
                     value[i] = 0
                 }
@@ -28,14 +25,12 @@ class Input extends Component {
         this.inputHandler = (ev) => {
             const re = /[\n,]/;
             let toArr = this.inputCheck(ev.target.value.split(re))
-          
-            console.log( toArr[2] + '  3')
+
             this.setState({
                 hours: toArr[0],
                 minutes: toArr[1],
                 seconds: toArr[2]
             })
-            console.log(ev.target.value)
         }  
         
         this.resetValues = () => {
@@ -55,7 +50,7 @@ class Input extends Component {
                 <input 
                     placeholder="Enter time in seconds" 
                     onChange={this.props.setupTimer}
-                    value={this.props.secondsTotal}
+
                 /><br/>
                 <input 
                     value={`${hours},${minutes},${seconds}`}
@@ -68,15 +63,7 @@ class Input extends Component {
                     rows="3"
                 >
                 </textarea><br/>
-                {/* <select>
-                    <option>1</option>
-                    {for (let i=0;){
-    
-                    }}
-                </select>
-                <select></select>
-                <select></select><br/> */}
-                <button>Start timer</button>
+                <button onClick={this.props.startTimer}>Start timer</button>
                 <button onClick={this.resetValues}>Reset timer</button>
             </div>
         )
@@ -84,8 +71,3 @@ class Input extends Component {
 }
 
 export default Input;
-
-
-// const maxHours = 23;
-// const maxMinutes = 59;
-// const maxSeconds = 59;
