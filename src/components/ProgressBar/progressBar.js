@@ -16,9 +16,6 @@ const ProgressBar = (props) => {
             <svg 
                 width={circleSize.width}
                 height={circleSize.height}
-                style={{
-                    background: 'white'
-                }}
             >
                 
                 <circle
@@ -37,17 +34,18 @@ const ProgressBar = (props) => {
                     stroke={"#454343"}
                     strokeWidth={circleSize.strokeWidth}
                     strokeDasharray={circumference + ' ' + circumference }
-                    style={{strokeDashoffset}}
+                    style={{
+                        strokeDashoffset
+                    }}
                 />
 
 
                 <text y="55" transform="translate(59)" style={{
                     fontWeight: 'bold',
-                    color: 'blue'
                     }}
                 >
-                    <tspan x="0" text-anchor="middle">{props.timeValue}</tspan>
-                    <tspan x="0" text-anchor="middle" dy="15">{props.time}</tspan>                    
+                    <tspan x="0" textAnchor="middle">{props.timeValue}</tspan>
+                    <tspan x="0" textAnchor="middle" dy="15">{props.time}</tspan>                    
                 </text>
             </svg>
         </div>

@@ -47,24 +47,29 @@ class Input extends Component {
         const { hours, minutes, seconds } = this.state;
         return(
             <div>
-                <input 
-                    placeholder="Enter time in seconds" 
-                    onChange={this.props.setupTimer}
-
-                /><br/>
-                <input 
-                    value={`${hours},${minutes},${seconds}`}
-                    onChange={this.inputHandler}
-                /><br/>
-                <textarea
-                    value={`${hours}\n${minutes}\n${seconds}`} 
-                    onChange={this.inputHandler}
-                    cols="21" 
-                    rows="3"
-                >
-                </textarea><br/>
+                <div>
+                    <input 
+                        placeholder="Enter time in seconds" 
+                        onChange={this.props.setupTimer}
+                    />
+                </div>
+                <div>
+                    <input 
+                        value={`${hours},${minutes},${seconds}`}
+                        onChange={this.inputHandler}
+                    />
+                </div>
+                <div>
+                    <textarea
+                        value={`${hours}\n${minutes}\n${seconds}`} 
+                        onChange={this.inputHandler}
+                        cols="21" 
+                        rows="3"
+                    >
+                    </textarea>
+                </div>
                 <button onClick={this.props.startTimer}>Start timer</button>
-                <button onClick={this.resetValues}>Reset timer</button>
+                <button className={"red"} onClick={this.resetValues}>Reset timer</button>
             </div>
         )
     }

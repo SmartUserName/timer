@@ -29,11 +29,15 @@ class App extends Component {
             })
         }
         this.setupTimer = (ev) => {
-            const time = ev.target.value
-            this.setState({
-                secondsTotal: time
-            })
-            this.convertSeconds(time)
+            if(ev.target.value > 0 ){
+                const time = ev.target.value
+                this.setState({
+                    secondsTotal: time
+                })
+                this.convertSeconds(time)
+            } else {
+                return false
+            }
         }
 
         this.resetTimer = () => {
