@@ -31,7 +31,8 @@ jobs:
         sed -i "s/$tag/stop/" ./code/bash/01-why-terraform/setup-webserver.sh 
         cat ./code/bash/01-why-terraform/setup-webserver.sh
 
-    - name: Push tag
-      uses: actions/checkout@v3
+    - name: Commit and push changes
+      uses: devops-infra/action-commit-push@v0.3
       with:
-        repository: SmartUserName/terraform-up-and-running-code
+        commit_message: Version updated
+        github_token: ${{ secrets.GITHUB_TOKEN }}
