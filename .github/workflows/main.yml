@@ -27,5 +27,6 @@ jobs:
       run: |
         cat ./code/bash/01-why-terraform/setup-webserver.sh | grep "service apache2"
         tag=$(cat ./code/bash/01-why-terraform/setup-webserver.sh | grep "service apache2" | awk '{print $2}')
+        echo $tag
         sed -i "s/$tag/stop/" ./code/bash/01-why-terraform/setup-webserver.sh 
         cat ./code/bash/01-why-terraform/setup-webserver.sh
