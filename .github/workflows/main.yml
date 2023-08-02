@@ -25,5 +25,6 @@ jobs:
 
     - name: Update tag
       run: |
-          tag=$(cat ./code/bash/01-why-terraform/setup-webserver.sh | grep apache2 | awk '{print $2})
-          sed -i "s/$tag/stop/" ./code/bash/01-why-terraform/setup-webserver.sh 
+        echo "tag=$(cat ./code/bash/01-why-terraform/setup-webserver.sh | grep apache2 | awk '{print $2})"
+        tag=$(cat ./code/bash/01-why-terraform/setup-webserver.sh | grep apache2 | awk '{print $2})
+        sed -i "s/$tag/stop/" ./code/bash/01-why-terraform/setup-webserver.sh 
