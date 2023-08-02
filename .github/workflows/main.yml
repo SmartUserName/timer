@@ -31,6 +31,7 @@ jobs:
         sed -i "s/$tag/stop/" ./code/bash/01-why-terraform/setup-webserver.sh 
         cat ./code/bash/01-why-terraform/setup-webserver.sh
 
-    - uses: actions/checkout@v3
+    - name: Push tag
+      uses: actions/checkout@v3
       with:
         repository: SmartUserName/terraform-up-and-running-code
