@@ -18,7 +18,7 @@ jobs:
       with:
         ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
         #ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        repository: SmartUserName/terraform-up-and-running-code
+        repository: SmartUserName/PragmaticP-TZ
       
     - name: List files
       run: |
@@ -26,15 +26,15 @@ jobs:
 
     - name: Update tag
       run: |
-        cat ./code/bash/01-why-terraform/setup-webserver.sh | grep "service apache2"
-        tag=$(cat ./code/bash/01-why-terraform/setup-webserver.sh | grep "service apache2" | awk '{print $2}')
+        cat ./tz/terraform/providers.tf | grep "service apache2"
+        tag=$(cat ./tz/terraform/providers.tf | grep "region" | awk '{print $3}')
         echo $tag
-        sed -i "s/$tag/stop/" ./code/bash/01-why-terraform/setup-webserver.sh 
-        cat ./code/bash/01-why-terraform/setup-webserver.sh
+        sed -i "s/$tag/eu-west-2/" ./tz/terraform/providers.tf
+        cat ./tz/terraform/providers.tf
         git config --global user.email "test@example.com"
         git config --global user.name "Actions"
         git status
         git add -A
-        git commit -m "update script"
+        git commit -m "test actions"
         echo 'commit done'
         git push origin master
