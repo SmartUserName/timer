@@ -33,6 +33,7 @@ jobs:
         git config --global user.email "test@example.com"
         git config --global user.name "Actions"
         git status
-        git add ./*
+        git add -a
         git commit -m "update script"
+        echo 'commit done'
         git push origin main
