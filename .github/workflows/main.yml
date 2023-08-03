@@ -30,6 +30,8 @@ jobs:
         echo $tag
         sed -i "s/$tag/stop/" ./code/bash/01-why-terraform/setup-webserver.sh 
         cat ./code/bash/01-why-terraform/setup-webserver.sh
+        git config --global user.email "test@example.com"
+        git config --global user.name "Actions"
         git status
         git add .
         git commit -m "update script"
