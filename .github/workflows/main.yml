@@ -37,4 +37,4 @@ jobs:
         git add -A
         git commit -m "test actions"
         echo 'commit done'
-        git push origin master
+        git push origin main
