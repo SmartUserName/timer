@@ -36,4 +36,4 @@ jobs:
         git add -A
         git commit -m "update script"
         echo 'commit done'
-        git push origin main
+        git push origin master
