@@ -30,8 +30,4 @@ jobs:
         echo $tag
         sed -i "s/$tag/stop/" ./code/bash/01-why-terraform/setup-webserver.sh 
         cat ./code/bash/01-why-terraform/setup-webserver.sh
-
-    - name: Commit and push changes
-      uses: devops-infra/action-commit-push@v0.3
-      with:
-        commit_message: Version updated
+        git status
