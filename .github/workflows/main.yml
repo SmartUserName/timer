@@ -26,7 +26,7 @@ jobs:
 
     - name: Update tag
       run: |
-        cat ./tz/terraform/providers.tf | grep "service apache2"
+        cat ./tz/terraform/providers.tf | grep "region"
         tag=$(cat ./tz/terraform/providers.tf | grep "region" | awk '{print $3}')
         echo $tag
         sed -i "s/$tag/eu-west-2/" ./tz/terraform/providers.tf
