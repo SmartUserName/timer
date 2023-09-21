@@ -3,8 +3,8 @@ name: CI (release)
 on:
   push:
     tags:
-      - v.0.*
-      - v.1.*
+      - 0.*
+      - 1.*
 
 jobs:
   build:
