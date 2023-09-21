@@ -1,0 +1,26 @@
+name: CI (release)
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: Building and Pushing the Image
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Checkout engine repo
+      uses: actions/checkout@v3
+      with:
+        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        #ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        repository: SmartUserName/PragmaticP-TZ@main
+      
+    - name: List files
+      run: |
+        ls -la
