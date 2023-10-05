@@ -31,7 +31,7 @@ jobs:
         if [[ "$GITHUB_REF" == "refs/heads/master" ]]; then
           TAG="latest"
         else
-          TAG="branch"
+          TAG="${GITHUB_REF##*/}"
         fi
         echo $TAG
         
