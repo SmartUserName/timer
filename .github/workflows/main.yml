@@ -2,12 +2,8 @@ name: CI
 
 on:
   push:
-    push:
-      branches: [ master ]
-# on:
-#   push:
-#      push:
-#       branches: [ master ]
+    branches:
+      - '**' 
 
 jobs:
   build:
@@ -31,15 +27,24 @@ jobs:
 
     - name: Update tag
       run: |
-        cat ./tz/terraform/providers.tf | grep "region"
-        tag=$(cat ./tz/terraform/providers.tf | grep "region" | awk '{print $3}')
-        echo $tag
-        sed -i "s/$tag/eu-west-2/" ./tz/terraform/providers.tf
-        cat ./tz/terraform/providers.tf
-        git config --global user.email "test@example.com"
-        git config --global user.name "Actions"
-        git status
-        git add -A
-        git commit -m "test actions"
-        echo 'commit done'
-        git push origin main
+        # Determine the tag to use based on the branch name or tag event
+        if [[ "$GITHUB_REF" == "refs/heads/main" ]]; then
+          TAG="latest"
+        else
+          TAG="branch"
+        fi
+        echo $TAG
+        
+      
+        # cat ./tz/terraform/providers.tf | grep "region"
+        # tag=$(cat ./tz/terraform/providers.tf | grep "region" | awk '{print $3}')
+        # echo $tag
+        # sed -i "s/$tag/eu-west-2/" ./tz/terraform/providers.tf
+        # cat ./tz/terraform/providers.tf
+        # git config --global user.email "test@example.com"
+        # git config --global user.name "Actions"
+        # git status
+        # git add -A
+        # git commit -m "test actions"
+        # echo 'commit done'
+        # git push origin main
