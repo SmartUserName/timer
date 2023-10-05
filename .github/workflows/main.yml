@@ -28,7 +28,7 @@ jobs:
     - name: Update tag
       run: |
         # Determine the tag to use based on the branch name or tag event
-        if [[ "$GITHUB_REF" == "refs/heads/main" ]]; then
+        if [[ "$GITHUB_REF" == "refs/heads/master" ]]; then
           TAG="latest"
         else
           TAG="branch"
