@@ -14,12 +14,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Checkout engine repo
-      uses: actions/checkout@v3
-      with:
-        ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        #ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        repository: SmartUserName/PragmaticP-TZ@main
+    # - name: Checkout engine repo
+    #   uses: actions/checkout@v3
+    #   with:
+    #     ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     #ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     repository: SmartUserName/PragmaticP-TZ@main
       
     - name: List files
       run: |
